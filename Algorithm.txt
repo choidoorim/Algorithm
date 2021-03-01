@@ -1,6 +1,11 @@
 <코드잇>
+06.
+print("\"!@#$%^&*()\'")
+
+19.
+y, m, d = input().split('.')
+print(d, m, y, sep='-')
+
 23.
 a,b,c = input().split(':')
 print(b)
-
-24..

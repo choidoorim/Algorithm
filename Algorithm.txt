@@ -47,4 +47,37 @@ def codeup_30():
     word1 = ord(input()) #unicode로 입력 받은 문자를 변환.
     print(word1)
 
-codeup_30()
+def codeup_31():
+    word1 = int(input())
+    print(chr(word1))
+
+def codeup_32():
+    word1 = int(input())
+    print(-word1)
+
+def codeup_33():
+    word1 = ord(input())  # unicode로 입력 받은 문자를 변환.
+    word2 = word1 + 1
+    print(chr(word2))
+
+def codeup_34():
+    word1 = ord(input())  # unicode로 입력 받은 문자를 변환.
+    word2 = word1 + 1 #아스키코드 값 '1' 다음은 '2'이다.
+    print(chr(word2))
+
+def codeup_35():
+    a, b = input().split()
+    c = int(a) - int(b)
+    print(c)
+
+def codeup_36():
+    a, b = input().split()
+    c = float(a) * float(b)
+    print(c)
+
+def codeup_37():
+    word1, n = input().split()
+    print(word1*int(n))
+
+
+codeup_37()

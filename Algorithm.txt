@@ -1,4 +1,5 @@
 #<코드잇>
+#정수: int/실수: float
 def codeup_06():
     print("\"!@#$%^&*()\'")
 
@@ -61,23 +62,42 @@ def codeup_33():
     print(chr(word2))
 
 def codeup_34():
-    word1 = ord(input())  # unicode로 입력 받은 문자를 변환.
-    word2 = word1 + 1 #아스키코드 값 '1' 다음은 '2'이다.
-    print(chr(word2))
-
-def codeup_35():
     a, b = input().split()
     c = int(a) - int(b)
     print(c)
 
-def codeup_36():
+def codeup_35():
     a, b = input().split()
     c = float(a) * float(b)
     print(c)
 
-def codeup_37():
+def codeup_36():
     word1, n = input().split()
-    print(word1*int(n))
+    print(word1 * int(n))
 
+def codeup_37():
+    n = input()
+    word1 = input()
+    print(int(n)* word1)
 
-codeup_37()
+def codeup_38():
+    w1, w2 = input().split()
+    print(int(w1)**int(w2))
+
+def codeup_39():
+    w1, w2 = input().split()
+    print(float(w1) ** float(w2))
+
+def codeup_40():
+    w1, w2 = input().split()
+    print(int(w1)//int(w2)) # '//'연산자는 몫을 계산해준다.
+
+def codeup_41():
+    w1, w2 = input().split()
+    print(int(w1)%int(w2))
+
+def codeup_42():
+    w1 = input()
+    print(round(float(w1), 2))
+
+codeup_42()

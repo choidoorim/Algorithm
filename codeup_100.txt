@@ -138,6 +138,32 @@ def codeup_49():
     n1, n2 = input().split()
     print(int(n1) == int(n2))
 
+def codeup_50():
+    n1, n2 = input().split()
+    print(int(n1) <= int(n2))
 
-codeup_49()
+def codeup_51():
+    n1, n2 = input().split()
+    print(int(n1) != int(n2))
 
+def codeup_52():
+    n = int(input())
+    print(bool(n)) #python에서 0 값은 false 그리고 나머지 값들은 true로 판단.
+
+def codeup_53():
+    n = bool(int(input()))
+    print(not n) #true, false와 같은 논리 연산 값을 반대로 바꿔준다.
+
+def codeup_54():
+    n1, n2 = input().split()
+    print(bool(int(n1)) and bool(int(n2))) #python이 괄호를 해석하는 순서는 안에서 밖이다. EX) input -> bool
+
+def codeup_55():
+    n1, n2 = input().split()
+    print(bool(int(n1)) or bool(int(n2)))
+
+def codeup_56():
+    n1, n2 = input().split()
+    print((bool(int(n1)) and (not bool(int(n2))))or ((not bool(int(n1))) and bool(int(n2)))) # XOR
+
+codeup_56()

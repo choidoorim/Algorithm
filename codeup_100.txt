@@ -96,8 +96,48 @@ def codeup_41():
     w1, w2 = input().split()
     print(int(w1)%int(w2))
 
-def codeup_42():
+def codeup_42(): #정확도 측정은 round를 통해 계산해야한다.
     w1 = input()
     print(round(float(w1), 2))
 
-codeup_42()
+def codeup_43():
+    w1, w2 = input().split()
+    result = float(w1)/float(w2) #실수가 컴퓨터에 저장되는 과정에서 잘림 오차가 자주 발생한다.
+    print('%.3f'%result)
+
+def codeup_44():
+    w1, w2 = input().split()
+    print(int(w1) + int(w2))
+    print(int(w1) - int(w2))
+    print(int(w1) * int(w2))
+    print(int(w1) // int(w2))
+    print(int(w1) % int(w2))
+    result = float(w1) / float(w2)
+    print(round(float(result), 2))
+
+def codeup_45():
+    w1, w2, w3 = input().split()
+    sum = int(w1) + int(w2) + int(w3)
+    rv = sum/3
+    print(sum, round(rv, 2))
+
+def codeup_46():
+    n = input()
+    shift = int(n) << 1 # << 왼쪽 쉬프트. >> 오른쪽 쉬프트.
+    print(shift)
+
+def codeup_47():
+    n1, n2 = input().split()
+    print(int(n1) << int(n2))
+
+def codeup_48():
+    n1, n2 = input().split()
+    print(int(n1) < int(n2)) #비교/관계연산자는 <, >, <=, >=, ==(같다), !=(다르다)
+
+def codeup_49():
+    n1, n2 = input().split()
+    print(int(n1) == int(n2))
+
+
+codeup_49()
+

@@ -164,6 +164,15 @@ def codeup_55():
 
 def codeup_56():
     n1, n2 = input().split()
-    print((bool(int(n1)) and (not bool(int(n2))))or ((not bool(int(n1))) and bool(int(n2)))) # XOR
+    print((bool(int(n1)) and (not bool(int(n2)))) or ((not bool(int(n1))) and bool(int(n2)))) # XOR
 
-codeup_56()
+def codeup_57():
+    n1, n2 = input().split() #논리연산 문제가 나올 때는 그림을 그려보다. 반도체 수업 때를 생각. EX) or Gate/ and Gate...
+    print((bool(int(n1)) or (not bool(int(n2)))) and  ((not bool(int(n1))) or bool(int(n2))))
+
+def codeup_58():
+    n1, n2 = input().split()
+    print(not(bool(int(n1)) or bool(int(n2))) and not(bool(int(n1)) or bool(int(n2))))
+
+
+codeup_58()

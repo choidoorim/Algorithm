@@ -174,5 +174,14 @@ def codeup_58():
     n1, n2 = input().split()
     print(not(bool(int(n1)) or bool(int(n2))) and not(bool(int(n1)) or bool(int(n2))))
 
+def codeup_59():
+    n1 = int(input().split()) #str형을 비트연산자를 사용할라고 하니 에러 발생.
+    print(~n1) #bit 연산자 '~'은 비트를 반대로 연산해주는 not기능이다.
 
-codeup_58()
+def codeup_60():
+    n1, n2 = input().split() #split를 사용할 때 입력 받은 값을 int형으로 변환하는 작업을 해줘야 한다.
+    n1 = int(n1)
+    n2 = int(n2)
+    print(n1 & n2)
+
+codeup_60()

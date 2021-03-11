@@ -1,5 +1,8 @@
 #<코드잇>
 #정수: int/실수: float
+#~(bitwise not), &(bitwise and), |(bitwise or), ^(bitwise xor),
+#<<(bitwise left shift), >>(bitwise right shift) -> 비트단위 연산자.
+
 def codeup_06():
     print("\"!@#$%^&*()\'")
 
@@ -184,4 +187,71 @@ def codeup_60():
     n2 = int(n2)
     print(n1 & n2)
 
-codeup_60()
+def codeup_61():
+    n1, n2 = input().split()
+    n1 = int(n1)
+    n2 = int(n2)
+    print(n1 | n2)
+
+def codeup_62():
+    n1, n2 = input().split()
+    n1 = int(n1)
+    n2 = int(n2)
+    print(n1 ^ n2)
+
+def codeup_63():
+    n1, n2 = input().split()
+    n1 = int(n1)
+    n2 = int(n2)
+    if(n1 > n2):
+        print(n1)
+    else:
+        print(n2)
+
+def codeup_63_1():
+    n1, n2 = input().split()
+    n1 = int(n1)
+    n2 = int(n2)
+    result = (n1 if (n1 > n2) else n2) #3항 연산, 경우에 따라 코드를 줄일 수 있다.
+    print(result)
+
+def codeup_64():
+    n1, n2, n3 = input().split()
+    n1 = int(n1)
+    n2 = int(n2)
+    n3 = int(n3)
+    print((n2 if(n1 > n2) else n1) if((n2 if(n1 > n2) else n1)) < n3 else n3)
+
+def codeup_64_1(): #3항 연산자를 활용하면 경우에 따라 코드의 길이를 확실히 줄일 수 있다.
+    n1, n2, n3 = input().split()
+    n1 = int(n1)
+    n2 = int(n2)
+    n3 = int(n3)
+    if(n1 > n2):
+        small = n2
+        if(small < n3):
+            small = small
+        else:
+            small = n3
+    elif(n1 < n2):
+        small = n1
+        if (small < n3):
+            small = small
+        else:
+            big = n3
+    print(int(small))
+
+def codeup_65():
+    n1, n2, n3 = input().split()
+    n1 = int(n1)
+    n2 = int(n2)
+    n3 = int(n3)
+    if (n1 % 2 == 0):
+        print(int(n1))
+    if (n2 % 2 == 0):
+        print(int(n2))
+    if (n3 % 2 == 0):
+        print(int(n3))
+
+
+codeup_65()

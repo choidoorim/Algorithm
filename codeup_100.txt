@@ -254,4 +254,90 @@ def codeup_65():
         print(int(n3))
 
 
-codeup_65()
+def num(number):
+    if(number % 2 == 0):
+        print("even")
+    else:
+        print("odd")
+def codeup_66():
+    n1, n2, n3 = input().split()
+    num(int(n1))
+    num(int(n2))
+    num(int(n3))
+
+
+def Judge(num):
+    if(num % 2 == 0 and num < 0):
+        print("A")
+    elif(num % 2 != 0 and num < 0):
+        print("B")
+    elif(num % 2 == 0 and num > 0):
+        print("C")
+    else:
+        print("D")
+def codeup_67():
+    n1 = int(input())
+    Judge(n1)
+
+
+def ev(num):
+    if(num >= 90):
+        print("A")
+    elif(90 > num >= 70):
+        print("B")
+    elif(70 > num >= 40):
+        print("C")
+    else:
+        print("D")
+def codeup_68():
+    n1 = int(input())
+    ev(n1)
+
+def codeup_69():
+    n1 = str(input())
+    if(n1 == "A"):
+        print("best!!!") # good!! run! slowly~
+    elif(n1 == "B"):
+        print("good!!")
+    elif(n1 == "C"):
+        print("run!")
+    elif(n1 == "D"):
+        print("slowly~")
+    else:
+        print("what?")
+
+def season(num):
+    if(num == 1 or num == 12 or num == 2):
+        print("winter")
+    elif (num == 3 or num == 4 or num == 5):
+        print("spring")
+    elif (num == 6 or num == 7 or num == 8):
+        print("summer")
+    elif (num == 9 or num == 10 or num == 11):
+        print("fall")
+    else:
+        print("Not Season.")
+def season_2(num): #공통적으로 개월은 나눴을 때 몫이 계절별로 같다.
+    if(num == 12):
+        num = 1
+    else:
+        num = int(num)
+    result = num/3
+    result = int(result)
+    if(result == 0): #12는 몫이 4이므로 예외처리 해줘야 한다.
+        print("winter")
+    elif(result == 1):
+        print("spring")
+    elif(result == 2):
+        print("summer")
+    elif(result == 3):
+        print("fall")
+    else:
+        print("Not Season")
+
+def codeup_70():
+    n1 = int(input())
+    season(n1)
+    season_2(n1)
+
+codeup_70()

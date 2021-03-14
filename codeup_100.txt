@@ -334,10 +334,36 @@ def season_2(num): #공통적으로 개월은 나눴을 때 몫이 계절별로 
         print("fall")
     else:
         print("Not Season")
-
 def codeup_70():
     n1 = int(input())
     season(n1)
     season_2(n1)
 
-codeup_70()
+def codeup_71():
+    n1 = 1 #초기 값
+    while n1!=0:
+        n1 = int(input()) #키보드를 통해 입력하는 숫자는 형변환을 해주지 않으면 str형으로 입력이 된다.
+        print(type(n1))
+        if(n1!=0):
+            print(n1)
+
+def codeup_72():
+    n1 = int(input())
+    while n1!=0:
+        print(n1)
+        n1 = n1 - 1
+
+def codeup_73():
+    n1 = int(input())
+    while n1 != 0:
+        n1 = n1 - 1
+        print(n1)
+
+def codeup_74(): #ord(): 문자를 아스키코드 값으로 변환해주는 함수, chr():아스키코드 값을 문자로 변환해주는 함수
+    n1 = ord(input())
+    n2 = ord('a') #초기 값 a의 아스키코드
+    while n2<=n1:
+        print(chr(n2), end=' ') # print(..., end=' ')로 입력 시 줄을 바꾸지 않고 공백문자를 출력한다.
+        n2 += 1
+
+codeup_74()

@@ -3,6 +3,7 @@
 #~(bitwise not), &(bitwise and), |(bitwise or), ^(bitwise xor),
 #<<(bitwise left shift), >>(bitwise right shift) -> 비트단위 연산자.
 #float 와 double의 차이점은 double이 수의 오차범위가 더 작다라는 것이다.
+# a ** b -> a^b 이다.
 def codeup_06():
     print("\"!@#$%^&*()\'")
 
@@ -462,4 +463,74 @@ def codeup_85():
     result = w*h*b/8/1024/1024
     print('%.2f MB' %result)
 
-codeup_85()
+def codeup_86():
+    n1 = int(input())
+    ic = 0
+    sum = 0
+    while True:
+        ic += 1
+        sum += ic
+        if(sum >= n1):
+            print(sum)
+            break
+
+def codeup_87():
+    n1 = int(input())
+    for i in range(1, n1+1):
+        if(i%3 == 0):
+            continue #조건문이나 반복문에 continue가 실행되면 다음 반복단계로 넘어간다.
+            print(type(n1)) #실행되지 않고 넘어간다.
+        else:
+            print(i, end=' ')
+
+def codeup_88(): #등차수열
+    a, d, n = map(int, input().split())
+    result = a + (n-1)*d
+    print(result)
+
+def codeup_89(): #등비수열
+    a, r, n = map(int, input().split())
+    result = a*(r**(n-1))
+    print(result)
+
+def codeup_90(): #수열
+    a, m, d, n = map(int, input().split())
+    for i in range(1, n): #a 값에서부터 반복문이 1번 실행된것과 같다.
+        seq = a * m + d
+        a = seq  # 결과 값을 저장.
+    print(a) # 1 -1 1 1을 넣었을 때는 1번째 순서이므로 반복문이 돌지 않고 실행되는 것과 같으므로 seq가 아닌 a를 출력해야한다.
+
+def codeup_91(): #나머지 값을 통해서 최소공배수를 계산할 수 있다.
+    a, b, c = map(int, input().split())
+    ic = 1
+    while (ic%a != 0 or ic%b != 0 or ic%c != 0):
+        ic += 1
+    print(ic)
+
+def codeup_91_1():
+    a, b, c = map(int, input().split())
+    ic = 1
+    while True:
+        ic += 1
+        if(ic%a == 0 and ic%b == 0 and ic%c == 0):
+            break
+    print(ic)
+
+def codeup_92():
+    n = int(input())
+    a = input().split()
+    for i in range(0, n): #n번 a 번호를 입력하여 저장
+        a[i] = int(a[i])
+
+    d=[]
+    for i in range(24): #count된 수를 담을 list
+        d.append(0)
+
+    for i in range(n): #a list에 값이 있을 때마다 d list의 해당 숫자 count
+        d[a[i]] += 1
+
+    for i in range(1, 24):
+        print(d[i], end=' ')
+
+
+codeup_92()

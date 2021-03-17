@@ -532,5 +532,45 @@ def codeup_92():
     for i in range(1, 24):
         print(d[i], end=' ')
 
+def codeup_93():
+    n = int(input())
+    a = input().split()
+    for i in range(0, n):  # n번 a 번호를 입력하여 저장
+        a[i] = int(a[i])
 
-codeup_92()
+    for i in range(n-1, -1 ,-1):
+        print(a[i], end=' ')
+
+def codeup_94():
+    n = int(input())
+    a = input().split()
+    for i in range(0, n):  # n번 a 번호를 입력하여 저장
+        a[i] = int(a[i])
+    sma = a[0] #가장 작은 값을 지정
+    
+    for i in range(0,n): #비교 로직
+        if (sma > a[i]):
+            sma = a[i]
+        else:
+            sma = sma
+    print(sma)
+
+def codeup_95():
+    d = [] #d= list() 2가지 방법으로 빈 리스트를 생성할 수 있다.
+    for i in range(0, 20): # 0 ~ 19까지인 리스트 생성, 빈 리스트는 항상 0부터 시작.
+        d.append([]) #기존 리스트에서 새로운 리스트 만들기. = List Comprehensions
+        #[[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
+        for j in range(0, 20):
+            d[i].append(0) #새로 생긴 리스트마다 0 값을 20번 채워준다.
+
+    n = int(input())
+    for i in range(n):
+        a, b = map(int, input().split())
+        d[a][b] = 1
+
+    for i in range(1, 20): # 1~20 리스트중에 0~19까지의 리스트만 사용
+        for j in range(1, 20):
+            print(d[i][j], end=' ')
+        print()
+
+codeup_95()

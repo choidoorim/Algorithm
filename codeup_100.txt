@@ -573,4 +573,60 @@ def codeup_95():
             print(d[i][j], end=' ')
         print()
 
-codeup_95()
+def codeup_96():
+    d = []
+    for i in range(20): #20개의 바둑판을 만들지만 (1~19) - (1~19)의 바둑판만 사용한다.
+        d.append([])
+        for j in range(20):
+            d[i].append(0)
+
+
+    x = list()
+    for i in range(19): #range를 (1,20)으로 했을 때는 list을 벗어나는 오류가 발생한다. 왜냐하면 x는 새로운 리스트로 0부터 시작이기 때문이다.
+        x = input().split() # 19개의 값을 입력(0 ~ 19)
+        for j in range(19):
+            d[i+1][j+1] = int(x[j])
+
+    n = int(input()) #몇번 행과 열을 바꿀지 입력
+    for i in range(n):
+        a, b = map(int, input().split())
+        for j in range(1, 20):
+            if d[a][j] == 0:
+                d[a][j] = 1
+            else:
+                d[a][j] = 0
+
+            if d[j][b] == 0:
+                d[j][b] = 1
+            else:
+                d[j][b] = 0
+
+    for i in range(1, 20):
+        for j in range(1, 20):
+            print(d[i][j], end=' ')
+        print()
+
+def codeup_97():
+    w, h = map(int, input().split())
+    n = int(input()) #몇개의 막대를 추가할지 입력
+    ls = list()
+    for k in range(w+1): #입력한 배열보다 1개의 행과 열을 추가한다.
+        ls.append([])
+        for l in range(h+1):
+            ls[k].append(0)
+
+
+    for k in range(n): #입력받은 막대의 개수
+        i, d, x, y = map(int, input().split())
+        for l in range(i): # 막대의 길이 
+            if(d == 0): #0일 경우 입력받은 가로 값은 유지하고 세로 값들을 하나씩 추가한다.
+                ls[x][y + l] = 1
+            else: #1일 경우 입력받은 세로 값은 유지하고 가로 값들을 하나씩 추가한다.
+                ls[x + l][y] = 1
+
+    for k in range(1, w+1):
+        for l in range(1, h+1):
+            print(ls[k][l], end=' ')
+        print()
+
+codeup_97()

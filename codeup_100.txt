@@ -630,23 +630,38 @@ def codeup_97():
         print()
 
 def codeup_98():
+    # 10*10 맵 입력 리스트에서의 2, 2는 3번째 행과 열이지만
+    # 문제에서의 2, 2는 2번째 행과 열이기 때문에 11*11을 생성 후 값을 1,1부터 넣어줘야 한다.
     d = list()
-    for i in range(12):
+    for i in range(11): #11 * 11 리스트 생성
         d.append([])
-        for j in range(12):
+        for j in range(11):
             d[i].append(0)
-            print(d[i][j], end=' ')
-        print()
 
-    for i in range(1, 12):
-        d[1][i] = 1
-        d[i][1] = 1
-        d[10][i] = 1
-        d[i][10] = 1
-    print()
+    for i in range(10):
+        x = input().split()
+        for j in range(10):
+            d[i+1][j+1] = int(x[j])
 
     for i in range(1, 11):
         for j in range(1, 11):
+            print(d[i][j], end=' ')
+        print()
+
+def ex():
+    d = list()
+    for i in range(10):  # 11 * 11 리스트 생성
+        d.append([])
+        for j in range(10):
+            d[i].append(0)
+
+    for i in range(10): #10*10 맵 입력
+        x = input().split()
+        for j in range(10):
+            d[i][j] = int(x[j])
+
+    for i in range(10):
+        for j in range(10):
             print(d[i][j], end=' ')
         print()
 

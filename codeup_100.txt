@@ -4,6 +4,8 @@
 #<<(bitwise left shift), >>(bitwise right shift) -> 비트단위 연산자.
 #float 와 double의 차이점은 double이 수의 오차범위가 더 작다라는 것이다.
 # a ** b -> a^b 이다.
+# 코드를 통해 예외처리를 작성해주는 것만으로 컴파일 시간과 메모리를 효율적으로 사용할 수 있다.
+# EX) codeup_98() -> 예외 처리를 하지 않았다가 코드업에서 시간 초과로 코드 제출이 되지 않았다.
 def codeup_06():
     print("\"!@#$%^&*()\'")
 
@@ -632,37 +634,42 @@ def codeup_97():
 def codeup_98():
     # 10*10 맵 입력 리스트에서의 2, 2는 3번째 행과 열이지만
     # 문제에서의 2, 2는 2번째 행과 열이기 때문에 11*11을 생성 후 값을 1,1부터 넣어줘야 한다.
-    d = list()
+    d = []
     for i in range(11): #11 * 11 리스트 생성
         d.append([])
         for j in range(11):
             d[i].append(0)
-
     for i in range(10):
         x = input().split()
         for j in range(10):
             d[i+1][j+1] = int(x[j])
+    a, b, status = 2, 2, 0
+    while True:
+        d[a][b] = 9
+        if (status == 2):
+            break
 
-    for i in range(1, 11):
+        # 예외 처리문을 통해 메모리와 컴파일 시간을 단축 시킬 수 있다. (중요!!!!!)
+        if (d[a][b + 1] == 1 and d[a + 1][b] == 1) or (a == 9 and b == 9):
+            break
+
+        if (d[a][b + 1] != 1):
+            b += 1
+            status = d[a][b]
+        elif (d[a + 1][b] != 1):
+            a += 1
+            status = d[a][b]
+
+    for i in range(1, 11): #11 * 11 리스트 생성
         for j in range(1, 11):
             print(d[i][j], end=' ')
         print()
 
-def ex():
-    d = list()
-    for i in range(10):  # 11 * 11 리스트 생성
-        d.append([])
-        for j in range(10):
-            d[i].append(0)
-
-    for i in range(10): #10*10 맵 입력
-        x = input().split()
-        for j in range(10):
-            d[i][j] = int(x[j])
-
-    for i in range(10):
-        for j in range(10):
-            print(d[i][j], end=' ')
+def star():
+    num = int(input())
+    for i in range(1, num+1):
+        for j in range(i):
+            print('*', end=' ')
         print()
 
-codeup_98()
+star()

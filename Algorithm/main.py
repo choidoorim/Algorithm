@@ -277,7 +277,7 @@ def codeup_63_1():
     n1, n2 = input().split()
     n1 = int(n1)
     n2 = int(n2)
-    result = (n1 if (n1 > n2) else n2)  # 3항 연산, 경우에 따라 코드를 줄일 수 있다.
+    result = (n1 if (n1 > n2) else n2)
     print(result)
 
 
@@ -289,7 +289,7 @@ def codeup_64():
     print((n2 if (n1 > n2) else n1) if ((n2 if (n1 > n2) else n1)) < n3 else n3)
 
 
-def codeup_64_1():  # 3항 연산자를 활용하면 경우에 따라 코드의 길이를 확실히 줄일 수 있다.
+def codeup_64_1():
     n1, n2, n3 = input().split()
     n1 = int(n1)
     n2 = int(n2)
@@ -371,7 +371,7 @@ def codeup_68():
 def codeup_69():
     n1 = str(input())
     if (n1 == "A"):
-        print("best!!!")  # good!! run! slowly~
+        print("best!!!")
     elif (n1 == "B"):
         print("good!!")
     elif (n1 == "C"):
@@ -383,26 +383,14 @@ def codeup_69():
 
 
 def season(num):
-    if (num == 1 or num == 12 or num == 2):
-        print("winter")
-    elif (num == 3 or num == 4 or num == 5):
-        print("spring")
-    elif (num == 6 or num == 7 or num == 8):
-        print("summer")
-    elif (num == 9 or num == 10 or num == 11):
-        print("fall")
-    else:
-        print("Not Season.")
-
-
-def season_2(num):  # 공통적으로 개월은 나눴을 때 몫이 계절별로 같다.
     if (num == 12):
         num = 1
     else:
         num = int(num)
+
     result = num / 3
     result = int(result)
-    if (result == 0):  # 12는 몫이 4이므로 예외처리 해줘야 한다.
+    if (result == 0):
         print("winter")
     elif (result == 1):
         print("spring")
@@ -417,8 +405,19 @@ def season_2(num):  # 공통적으로 개월은 나눴을 때 몫이 계절별�
 def codeup_70():
     n1 = int(input())
     season(n1)
-    season_2(n1)
 
+
+def season_2(num):
+    if (num == 1 or num == 12 or num == 2):
+        print("winter")
+    elif (num == 3 or num == 4 or num == 5):
+        print("spring")
+    elif (num == 6 or num == 7 or num == 8):
+        print("summer")
+    elif (num == 9 or num == 10 or num == 11):
+        print("fall")
+    else:
+        print("Not Season.")
 
 def codeup_71():
     n1 = 1  # 초기 값
@@ -772,5 +771,3 @@ def codeup_98():
             print(d[i][j], end=' ')
         print()
 
-
-codeup_19()

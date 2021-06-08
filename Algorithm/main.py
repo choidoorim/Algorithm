@@ -771,3 +771,30 @@ def codeup_98():
             print(d[i][j], end=' ')
         print()
 
+
+def change_money(money):
+    coin_type = [500, 100, 50, 10]
+    count = 0
+    for coin in coin_type:  # coin에 500, 100, 50 ,10이 들어감
+        print(coin)
+        count += money//coin
+        money %= coin
+    print(count)
+
+
+def big_num():
+    n, m, k = map(int, input().split())
+    data = list(map(int, input().split()))
+    data.sort()
+    fst_num = data[n-1]
+    sec_num = data[n-2]
+
+    count = (m // (k+1)) * k    # 수열이 반복되는 수 * 큰 수를 곱할 수 있는 최대 수
+    count += m % (k+1)
+
+    result = 0
+    result += fst_num * count
+    result += sec_num * (m-count)
+    print(result)
+
+big_num()

@@ -772,6 +772,56 @@ def codeup_98():
         print()
 
 
+def lrud():
+    n = int(input())
+    x, y = 1, 1
+    plans = input().split()
+    for plan in plans:
+        print(x, y)
+        if plan == 'L':
+            nx = x
+            ny = y - 1
+        elif plan == 'R':
+            nx = x
+            ny = y + 1
+        elif plan == 'U':
+            nx = x - 1
+            ny = y
+        elif plan == 'D':
+            nx = x + 1
+            ny = y
+        if nx < 1 or nx > n or ny < 1 or ny > n:
+            continue
+        x, y = nx, ny
+    print(x, y)
+
+
+def time():
+    n = int(input())
+    count = 0
+    for i in range(n+1):
+        for j in range(60):
+            for k in range(60):
+                if '3' in str(i) + str(j) + str(k):
+                    count += 1
+    print(count)
+
+
+def knight():
+    location = input()
+    row = int(location[1])
+    column = ord(location[0]) - ord('a') + 1
+    count = 0
+    move_type = [(-1, 2), (1, 2), (-1, -2), (1, -2), (-2, 1), (-2, -1), (2, 1), (2, -1)]
+    for move in move_type:
+        next_row = row + move[0]
+        next_column = column + move[1]
+        if 0 < next_row <= 8 and 0 < next_column <= 8:
+            count += 1
+    print(count)
+
+
+
 def change_money(money):
     coin_type = [500, 100, 50, 10]
     count = 0
@@ -796,5 +846,3 @@ def big_num():
     result += fst_num * count
     result += sec_num * (m-count)
     print(result)
-
-big_num()

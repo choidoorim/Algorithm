@@ -24,8 +24,8 @@ def big_num_fst():
     data = list(map(int, input().split()))  # list를 통해 배열로 저장
     start_time = time.time()
     data.sort()  # list 작은 수부터 큰 수 순서로 정렬하기
-    fst_num = data[n-1]
-    sec_num = data[n-2]
+    fst_num = data[n - 1]
+    sec_num = data[n - 2]
     sum = 0
     while True:
         for x in range(k):  # 0 ~ k-1까지
@@ -48,12 +48,12 @@ def big_num_sec():
 
     start_time = time.time()
     data.sort()
-    fst_num = data[n-1]
-    sec_num = data[n-2]
+    fst_num = data[n - 1]
+    sec_num = data[n - 2]
 
     sum = 0
-    count = int(m//(k+1)) * k
-    count += m % (k+1)
+    count = int(m // (k + 1)) * k
+    count += m % (k + 1)
 
     sum += fst_num * count
     sum += sec_num * (m - count)
@@ -68,13 +68,13 @@ def card_select_fst():
     n, m = map(int, input().split())
     for x in range(n):
         data = list(map(int, input().split()))
-        min_value = min(data)   #min 함수는 list중에 제일 작은 수를 찾아준다.
+        min_value = min(data)  # min 함수는 list중에 제일 작은 수를 찾아준다.
         result = max(result, min_value)
     print(result)
 
 
 def card_select_sec():
-    n, m = map(int, input().split())    # n -  행, m - 열
+    n, m = map(int, input().split())  # n -  행, m - 열
     result = 0
     for x in range(n):
         data = list(map(int, input().split()))
@@ -99,6 +99,22 @@ def fromOne():
         if n < k:
             break
     print(count)
+
+
+# 곱하기 혹은 더하기 - 1까지는 더하기가 더 효율적이고 2부터는 곱하기가 더 효율적이다.
+def ex():
+    data = input()
+    result = int(data[0])  # 첫번째 수를 저장
+    count = 0
+
+    for x in range(1, len(data)):
+        num = int(data[x])
+        if num <= 1 or result <= 1:
+            result += num
+        else:
+            result *= num
+    print(result)
+
 
 # 상하좌우
 def lrud():
@@ -144,10 +160,10 @@ def lrud_fst():
 def time():
     h = int(input())
     count = 0
-    for i in range(h+1):    # range는 n-1 까지 계산하므로 0 ~ h까지의 시간을 반복문으로 사용하기 위해서 h + 1
-        for j in range(60):     # 0 ~ 59분까지
-            for k in range(60):     # 0 ~ 59초까지
-                if '3' in str(i) + str(j) + str(k):     # int 값을 합칠 때는 str을 더하는 것도 방법중 하나이다.
+    for i in range(h + 1):  # range는 n-1 까지 계산하므로 0 ~ h까지의 시간을 반복문으로 사용하기 위해서 h + 1
+        for j in range(60):  # 0 ~ 59분까지
+            for k in range(60):  # 0 ~ 59초까지
+                if '3' in str(i) + str(j) + str(k):  # int 값을 합칠 때는 str을 더하는 것도 방법중 하나이다.
                     count += 1
     print(count)
 
@@ -156,9 +172,9 @@ def time():
 def knight():
     input_data = input()
     row = int(input_data[1])
-    column = ord(input_data[0]) - ord('a') + 1   #열을 숫자로 변환(a ~ h)
+    column = ord(input_data[0]) - ord('a') + 1  # 열을 숫자로 변환(a ~ h)
     count = 0
-    move_type = [(-1, 2), (1, 2), (-1, -2), (1, -2), (-2, 1), (-2, -1), (2, 1), (2, -1)]    # 체스말이 움직일 수 있는 유형
+    move_type = [(-1, 2), (1, 2), (-1, -2), (1, -2), (-2, 1), (-2, -1), (2, 1), (2, -1)]  # 체스말이 움직일 수 있는 유형
     for move in move_type:  # 유형들이 움직일 수 있는 범위안에 들어가는지 체크 
         # row += move[0] 기존의 값이 변경되어 측정을 할 수가 없음.
         # column += move[1] 따라서 새로운 변수에 값을 저장하는 방식으로 진행해야함.
@@ -170,8 +186,69 @@ def knight():
     print(count)
 
 
-knight()
+# 문자열 재정렬
+def sort():
+    words = input()
+    result = []
+    value = 0
 
+    for word in words:
+        if word.isalpha():  # 문자가 알파벳인지 확인
+            result += word
+        else:
+            value += int(word)  # 숫자는 int 형으로 변환 후 더함.
+    result.sort()  # 오름차순으로 정렬
+    if value != 0:  # 숫자가 있을 경우에만 합침
+        result.append(str(value))
+    print(''.join(result))  # 리스트를 문자열로 변경
+
+
+# 게임 개발
+def game():
+    n, m = map(int, input().split())
+    move = [[0] * m for _ in range(n)]  # 이동 경로 map
+    x, y, direction = map(int, input().split())
+    move[x][y] = 1  # 현재 위치는 1로 지정
+
+    maps = []  # 맵 구조
+    for i in range(n):
+        maps.append(list(map(int, input().split())))
+
+    count = 1
+    turn_count = 0
+
+    # direction(0,1,2,3)별 이동하는 x,y 좌표
+    dx = [-1, 0, 1, 0]
+    dy = [0, 1, 0, -1]
+
+    while True:
+        direction -= 1
+        if direction == -1:
+            direction = 3
+        nx = x + dx[direction]
+        ny = y + dy[direction]
+        # 이동이 가능한 경우 - 1. 맵 체크 2. 이동한 위치 맵 체크
+        if maps[nx][ny] == 0 and move[nx][ny] == 0:
+            count += 1
+            move[nx][ny] = 1
+            x = nx
+            y = ny
+            turn_count = 0
+        else:
+            turn_count += 1
+        if turn_count == 4:
+            nx = x - dx[direction]
+            ny = y - dy[direction]
+            if maps[nx][ny] == 0:  # 맵 구조 상 막혀있지 않을 경우
+                x = nx
+                y = ny
+            else:  # 맵이 막혀있을 경우 종료
+                break
+            turn_count = 0
+
+    print(count)
+
+game()
 
 # start_time = time.time()
 # end_time = time.time()

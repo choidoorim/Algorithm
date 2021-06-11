@@ -206,46 +206,44 @@ def sort():
 # 게임 개발
 def game():
     n, m = map(int, input().split())
-    move = [[0] * m for _ in range(n)]  # 이동 경로 map
-    x, y, direction = map(int, input().split())
-    move[x][y] = 1  # 현재 위치는 1로 지정
+    move = [m * [0] for _ in range(n)]
 
-    maps = []  # 맵 구조
-    for i in range(n):
-        maps.append(list(map(int, input().split())))
+    x, y, location = map(int, input().split())
+    move[x][y] = 1
+
+    dx = [-1, 0, 1, 0]
+    dy = [0, 1, 0, -1]
 
     count = 1
     turn_count = 0
 
-    # direction(0,1,2,3)별 이동하는 x,y 좌표
-    dx = [-1, 0, 1, 0]
-    dy = [0, 1, 0, -1]
+    maps = []
+    for i in range(n):
+        maps.append(list(map(int, input().split())))
 
     while True:
-        direction -= 1
-        if direction == -1:
-            direction = 3
-        nx = x + dx[direction]
-        ny = y + dy[direction]
-        # 이동이 가능한 경우 - 1. 맵 체크 2. 이동한 위치 맵 체크
-        if maps[nx][ny] == 0 and move[nx][ny] == 0:
-            count += 1
+        location -= 1
+        if location == -1:
+            location = 3
+        nx = x + dx[location]
+        ny = y + dy[location]
+        if move[nx][ny] == 0 and maps[nx][ny] == 0:
             move[nx][ny] = 1
             x = nx
             y = ny
+            count += 1
             turn_count = 0
         else:
             turn_count += 1
         if turn_count == 4:
-            nx = x - dx[direction]
-            ny = y - dy[direction]
-            if maps[nx][ny] == 0:  # 맵 구조 상 막혀있지 않을 경우
+            nx = x - dx[location]
+            ny = y - dy[location]
+            if move[nx][ny] == 0:
                 x = nx
                 y = ny
-            else:  # 맵이 막혀있을 경우 종료
+            else:
                 break
             turn_count = 0
-
     print(count)
 
 game()

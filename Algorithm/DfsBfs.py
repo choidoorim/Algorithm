@@ -58,4 +58,35 @@ def recursive_function(i):
     recursive_function(i+1)
 
 
-recursive_function(1)
+def factorial(n):   # 수열
+    result = 1
+    for i in range(1, n+1):     # 1 ~ n까지
+        result *= i
+    return result
+
+
+def recursive_factorial(n):
+    if n <= 1:
+        return 1
+    print(recursive_factorial(n-1))
+    return n * recursive_factorial(n-1)
+
+INF = 999999999 # 무한의 비용
+def ad_matrix():
+    graph = [
+        [0, 7, 5],
+        [7, 0, INF],
+        [5, INF, 0]
+    ]
+    print(graph)
+
+
+def ad_list(n, m):
+    graph = [[] for _ in range(3)]
+    graph[0].append((1, 7))
+    graph[0].append((2, 5))
+    graph[1].append((0, 7))
+    graph[2].append((0, 5))
+    print(graph[n][m])
+
+

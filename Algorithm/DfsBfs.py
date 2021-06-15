@@ -154,6 +154,7 @@ def bfs_mirror(x, y):
                 queue.append((nx, ny))
     return graph[n - 1][m - 1]
 
+
 # 음료수 얼려먹기
 def dfs_ice(x, y):
     if x < 0 or y < 0 or x >= n_ice or y >= m_ice:

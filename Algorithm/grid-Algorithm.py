@@ -18,11 +18,11 @@ def change_money(money):
         money %= coin
     print(count)
 
+# change_money(1260)
 
 def big_num_fst():
     n, m, k = map(int, input().split())
     data = list(map(int, input().split()))  # list를 통해 배열로 저장
-    start_time = time.time()
     data.sort()  # list 작은 수부터 큰 수 순서로 정렬하기
     fst_num = data[n - 1]
     sec_num = data[n - 2]
@@ -37,16 +37,14 @@ def big_num_fst():
         m -= 1
         if m == 0:
             break
-    end_time = time.time()
-    print("time : ", end_time - start_time)
     print(sum)
 
 
-def big_num_sec():
+
+def big_num():
     n, m, k = map(int, input().split())
     data = list(map(int, input().split()))
 
-    start_time = time.time()
     data.sort()
     fst_num = data[n - 1]
     sec_num = data[n - 2]
@@ -57,10 +55,9 @@ def big_num_sec():
 
     sum += fst_num * count
     sum += sec_num * (m - count)
-    end_time = time.time()
-    print("time : ", end_time - start_time)
     print(sum)
 
+# big_num()
 
 # 제일 작은 수의 카드 값중 제일 큰 것 고르기
 def card_select_fst():
@@ -72,6 +69,7 @@ def card_select_fst():
         result = max(result, min_value)
     print(result)
 
+# card_select_fst()
 
 def card_select_sec():
     n, m = map(int, input().split())  # n -  행, m - 열
@@ -100,6 +98,7 @@ def fromOne():
             break
     print(count)
 
+fromOne()
 
 # 곱하기 혹은 더하기 - 1까지는 더하기가 더 효율적이고 2부터는 곱하기가 더 효율적이다.
 def ex():
@@ -246,7 +245,7 @@ def game():
             turn_count = 0
     print(count)
 
-game()
+# game()
 
 # start_time = time.time()
 # end_time = time.time()

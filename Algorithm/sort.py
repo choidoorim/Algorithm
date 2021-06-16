@@ -28,7 +28,7 @@ def select_sort():
 # select_sort()
 
 
-def insertion_sort():
+def insertion_sort():   # 기준이 되는 수와 바로 전 수를 비교한다.
     array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
     for i in range(1, len(array)):
         for j in range(i, 0, -1):

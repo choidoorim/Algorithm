@@ -64,5 +64,56 @@ def quick_sort(array, start, end):
     print(array)
 
 
-quick_array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
-quick_sort(quick_array, 0, len(quick_array) - 1)
+# quick_array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+# quick_sort(quick_array, 0, len(quick_array) - 1)
+
+def count_sort():
+    array = [7, 5, 9, 0, 3, 1, 6, 2, 9, 1, 4, 8, 0, 5, 2]
+    count_array = [0] * (max(array) + 1)  # 배열에서 가장 큰 값을 찾은 후, 0~max 값 계수 배열을 만든다.
+    for i in array:  # 데이터를 확인하면서 동일한 데이터를 1씩 증가시킨다.
+        count_array[i] += 1
+    print(count_array)
+
+    for i in range(len(count_array)):
+        for j in range(count_array[i]):
+            print(i, end=' ')
+
+
+# count_sort()
+
+
+def up_down():
+    n = int(input())
+
+    array = []
+    for i in range(n):
+        array.append(int(input()))
+
+    for i in range(len(array)):
+        min_value = i
+        for j in range(i + 1, len(array)):
+            if array[min_value] > array[j]:
+                min_value = j
+        array[i], array[min_value] = array[min_value], array[i]
+
+    for i in range(len(array) - 1, -1, -1):
+        print(array[i], end=' ')
+
+
+# up_down()
+
+
+def up_down_library():
+    n = int(input())
+
+    array = []
+    for i in range(n):
+        array.append(int(input()))
+
+    array = sorted(array, reverse=True)
+
+    for i in array:
+        print(i, end=' ')
+
+
+up_down_library()

@@ -1,10 +1,17 @@
-n = int(input())
+n, k = map(int, input().split())
+a = list(map(int, input().split()))
+b = list(map(int, input().split()))
+a.sort()    # 오름차순으로 정렬
+b.sort(reverse=True)    # 내림차순으로 정렬
 
-array = []
-for i in range(n):
-    array.append(int(input()))
+for i in range(k):
+    if a[i] < b[i]:
+        a[i], b[i] = b[i], a[i]
+    else:
+        break
 
-array = sorted(array, reverse=True)
+sum = 0
+for i in range(len(a)):
+    sum += a[i]
 
-for i in array:
-    print(i, end=' ')
+print(sum)

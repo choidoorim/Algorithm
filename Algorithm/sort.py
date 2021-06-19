@@ -116,4 +116,66 @@ def up_down_library():
         print(i, end=' ')
 
 
-up_down_library()
+# up_down_library()
+
+def grade():
+    n = int(input())
+
+
+def grade_library():
+    n = int(input())
+
+    array = []
+    for i in range(n):
+        data = input().split()
+        array.append((data[0], int(data[1])))   # 튜플(리스트)은 수정, 삽입, 삭제가 되지 않기 때문에 sorted method를 사용해야 한다.
+
+    array = sorted(array, key=lambda a: a[1])   # array라는 배열의 점수([1]) 리스트를 기준으로 정렬함.
+
+    for student in array:
+        print(student[0], end=' ')
+
+
+# grade_library()
+
+
+def change():
+    n, k = map(int, input().split())
+    a = list(map(int, input().split()))
+    b = list(map(int, input().split()))
+    a.sort()  # 오름차순으로 정렬
+    b.sort(reverse=True)  # 내림차순으로 정렬
+
+    for i in range(k):
+        if a[i] < b[i]:
+            a[i], b[i] = b[i], a[i]
+        else:
+            break
+
+    sum = 0
+    for i in range(len(a)):
+        sum += a[i]
+
+    print(sum)
+
+
+# change()
+
+
+def change_two():
+    n, k = map(int, input().split())
+    a = list(map(int, input().split()))
+    b = list(map(int, input().split()))
+    a.sort()  # 오름차순으로 정렬
+    b.sort(reverse=True)  # 내림차순으로 정렬
+
+    for i in range(k):
+        if a[i] < b[i]:
+            a[i], b[i] = b[i], a[i]
+        else:
+            break
+
+    print(sum(a))
+
+
+change_two()

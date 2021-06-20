@@ -84,13 +84,13 @@ def ad_matrix():
     print(graph)
 
 
-def ad_list(n, m):
+def ad_list():
     graph = [[] for _ in range(3)]
     graph[0].append((1, 7))
     graph[0].append((2, 5))
     graph[1].append((0, 7))
     graph[2].append((0, 5))
-    print(graph[n][m])
+    print(graph)
 
 
 visited = [False] * 9  # 방문 기록 0 ~ 9

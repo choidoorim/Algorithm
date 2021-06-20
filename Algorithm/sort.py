@@ -169,7 +169,7 @@ def change_two():
     a.sort()  # 오름차순으로 정렬
     b.sort(reverse=True)  # 내림차순으로 정렬
 
-    for i in range(k):
+    for i in range(k):  # a 배열의 가장 작은 값과, b 배열의 가장 큰 값을 바꿔준다.
         if a[i] < b[i]:
             a[i], b[i] = b[i], a[i]
         else:

@@ -90,3 +90,27 @@ def store_stock():
 
 # store_stock()
 
+def rice_cut():
+    n, m = map(int, input().split())
+    rice = list(map(int, input().split()))
+
+    start = 0
+    end = max(rice)
+
+    while start <= end:
+        mid = (start + end) // 2
+        total = 0
+        for i in rice:  # 주문한 떡 개수와 총 길이 체크
+            if i > mid:
+                total += i - mid
+        if total < m:  # 더 많이 잘릴 경우
+            end = mid - 1
+        else:  # 떡이 덜 잘릴 경우는 없다.
+            result = mid
+            start = mid + 1
+
+    print(result)
+
+
+# rice_cut()
+

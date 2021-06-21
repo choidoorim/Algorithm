@@ -20,9 +20,8 @@ def select_sort():
         for j in range(i + 1, len(array)):  # 가장 작은 값을 찾는다.
             if array[min_value] > array[j]:
                 min_value = j
-            print(array, min_value)
         array[i], array[min_value] = array[min_value], array[i]     # for문이 끝나면 가장 작은 값과 기준 값을 스와이프 처리
-        # print(array, min_value)
+    print(array)
 
 
 # select_sort()

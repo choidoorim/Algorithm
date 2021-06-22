@@ -1,19 +1,12 @@
-n, m = map(int, input().split())
-rice = list(map(int, input().split()))
+d = [0]*100
 
-start = 0
-end = max(rice)
+def memoization_fibo(x):
+    if x == 1 or x == 2:
+        return 1
+    if d[x] != 0:   # 만약 이미 계산된적이 있다면 재귀함수를 실행시키지 않도록 함.
+        return d[x]
+    d[x] = memoization_fibo(x - 1) + memoization_fibo(x - 2)
+    return d[x]
 
-while start <= end:
-    mid = (start + end) // 2
-    total = 0
-    for i in rice:  # 떡을 잘랐을 때의 떡의 양 계산
-        if i > mid:
-            total += i - mid
-    if total < m:   # 더 많이 잘릴 경우
-        end = mid - 1
-    else:   # 떡이 덜 잘릴 경우는 없다.
-        result = mid
-        start = mid + 1
 
-print(result)
+print(memoization_fibo(4))

@@ -1,13 +1,12 @@
 import sys
 n = int(sys.stdin.readline())
-check_list = [0] * 10001
 
-for i in range(n):
-    num = int(sys.stdin.readline())
-    check_list[num] += 1
+sum_one = 0
+sum_two = 0
 
-for i in range(10001):
-    if check_list[i] == 0:
-        continue
-    for j in range(check_list[i]):
-        print(i)
+array = list()
+for _ in range(n):
+    array.append(sys.stdin.readline().rstrip())
+
+for i in array[0]:
+    print(i)

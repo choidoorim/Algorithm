@@ -40,4 +40,3 @@ def good_code():
 
 
 good_code()
-

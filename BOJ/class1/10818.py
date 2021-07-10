@@ -16,4 +16,4 @@ def my():
 
 n = int(input())
 array = list(map(int, input().split()))
-print('{} {}'.format(min(array), max(array)))
+print(min(array), max(array))

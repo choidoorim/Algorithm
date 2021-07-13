@@ -1,13 +1,19 @@
-num = int(input())
+import sys
+n = int(sys.stdin.readline())
+n_array = sorted(list(map(int, sys.stdin.readline().split())))
+m = int(sys.stdin.readline())
+m_array = list(map(int, sys.stdin.readline().split()))
 
+dictionary = dict()    # 키 값과 값의 쌍으로 이루어져있다.
 
-def find(numb):
-    if numb < 1:   # 1보다 큰 자연수가 소수이다.
-        return False
-    for i in range(2, numb):
-        if numb % i == 0:   # 나머지가 0인 것이 있을 경우
-            return False
-    return True
+for i in n_array:
+    if i in dictionary:
+        dictionary[i] += 1
+    else:
+        dictionary[i] = 1
 
-
-print(find(num))
+for target in m_array:
+    if target in dictionary:
+        print(dictionary[target], end=' ')
+    else:
+        print(0, end=' ')

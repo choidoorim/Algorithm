@@ -3,27 +3,26 @@
 - CDR
 """
 from sys import stdin
-
 n = int(stdin.readline())
 
-array = []
-operator = []
 count = 1
+array = []
+result = []
 status = True
 for _ in range(n):
     num = int(stdin.readline())
-    while count <= num:     # 입력 된 숫자보다 count 가 작으면 push
+    while count <= num:
         array.append(count)
-        operator.append('+')
+        result.append('+')
         count += 1
-    if array[-1] == num:    # 입력 된 숫자가 배열 내 마지막에 존재한다면 pop
+    if array[-1] == num:
+        result.append('-')
         array.pop()
-        operator.append('-')
-    elif array[-1] != num:   # 배열 내에서 pop 할 수 있는 숫자가 없을 경우
+    elif array != num:
         print('NO')
         status = False
         break
 
 if status:
-    for i in operator:
+    for i in result:
         print(i)

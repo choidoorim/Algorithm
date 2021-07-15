@@ -1,2 +1,3 @@
-n, m = map(int, input().split())
-print(n , m)
+n = input()
+array = n[::-1]
+print(array)

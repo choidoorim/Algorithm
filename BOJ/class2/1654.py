@@ -17,7 +17,7 @@ while start <= end:
     mid = (start + end) // 2
 
     count = 0
-    for arr in array:
+    for arr in array:   # 랜선마다 최대 길이 계산
         count += arr // mid
 
     if count >= n:  # 원하는 랜선 길이보다 많을 경우, 더 큰 수로 나눠 개수를 줄인다.

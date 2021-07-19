@@ -18,7 +18,7 @@ def binary_search(num, array, start, end):  # 이진탐색은 반드시 정렬�
         return binary_search(num, array, mid + 1, end)
 
 
-def find_num(arr, num): # 전체 배열을 찾기 때문에 시간초과 오류 발생
+def find_num(arr, num):  # 전체 배열을 찾기 때문에 시간초과 오류 발생
     for j in arr:
         if j == num:
             return 1
@@ -35,4 +35,5 @@ m_array = list(map(int, sys.stdin.readline().split()))
 for i in m_array:
     start = 0
     end = n - 1
-    print(binary_search(i, n_array, start, end))
+    # print(binary_search(i, n_array, start, end))
+    print(find_num(n_array, i))

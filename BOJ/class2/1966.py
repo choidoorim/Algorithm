@@ -22,7 +22,7 @@ for _ in range(test_count):
             else:   # 궁금한 문서가 아닐 경우 - 인쇄
                 del imp[0]
                 del idx[0]
-        else:  # 중요도가 높은 것이 아닐 경우 - 배열에 뒤로 배치
+        else:  # 중요도가 높은 것이 아닐 경우 - 배열 뒤로 배치
             imp.append(imp[0])
             del imp[0]
             idx.append(idx[0])

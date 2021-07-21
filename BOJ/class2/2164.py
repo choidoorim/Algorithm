@@ -10,19 +10,8 @@ array = deque()
 for i in range(1, n + 1):
     array.append(i)
 
-
-def push(arr):
-    push_num = arr[0]
-    del arr[0]
-    arr.append(push_num)
-
-
-def pop(arr):
-    del arr[0]
-
-
 while len(array) > 1:
-    pop(array)
-    push(array)
+    array.popleft()
+    array.append(array.popleft())
 
 print(array[0])

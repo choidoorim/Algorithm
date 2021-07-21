@@ -17,7 +17,8 @@ def center(arr, num):
 
 def mode(arr):
     cnt = Counter(arr).most_common()    # Counter 함수: 빈도수 계산, most_common 함수: 빈도수 기준으로 정렬시켜줌
-    if len(cnt) > 1:    # 빈도 수가 있는 값이 하나만 존재할 경우( ex. 3,3,3일 경우 )
+    print(cnt)
+    if len(cnt) > 1:    # 빈도 수가 있는 값이 하나만 존재할 경우( ex. arr 가 3,3,3일 경우 )
         if cnt[0][1] == cnt[1][1]:  # 최빈 값이 2개 이상일 경우
             return cnt[1][0]    # 최빈 값중 2번째로 작은 값
         else:

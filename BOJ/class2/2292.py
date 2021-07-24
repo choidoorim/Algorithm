@@ -11,4 +11,3 @@ while True:
     num = 6 * room
     sum_num += num
     room += 1
-

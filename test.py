@@ -1,8 +1,2 @@
-def gcd(a, b):
-    if b == 0:
-        return a
-    else:
-        return gcd(b, a % b)
-
-
-print(gcd(24, 18))
+array = ['a', 'b', 'c']
+print(''.join(array))

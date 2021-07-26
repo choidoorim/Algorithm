@@ -231,3 +231,15 @@
     - factorial 을 재귀를 통해 직접 구현 시 recursive error 가 발생할 수도 있으니 math 모듈의 factorial 메소드를 사용하자
     - math 모듈의 ceil 함수: 올림, floor 함수: 내림/ 내장 모듈의 round 함수: 반올림
     - ** : 제곱
+  
+
+- 2021/07/26 - 백준 문제 풀이
+  - 백준: 1764, 1427
+  - 이코테: 최단 경로 이론 학습
+  - TIP
+    - .strip() : 문자열 및 공백을 제거해준다
+    -  array1과 array2 의 중복된 값을 찾는 방법
+       1. list(set(array1).intersection(array2))
+       2. list(set(array1) & set(array2))
+    - and - 논리연산자, & - 비교연산자 / or - 논리연산자, & 비교연산자
+  

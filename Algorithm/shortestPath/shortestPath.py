@@ -38,7 +38,7 @@ def dijkstra(start):
     for j in graph[start]:
         distance[j[0]] = j[1]
     for i in range(n - 1):
-        now = small_node()
+        now = small_node()  # 방문한 적 없는 가장 작은 node 추출
         visited[now] = True
         for j in graph[now]:
             cost = distance[now] + j[1]

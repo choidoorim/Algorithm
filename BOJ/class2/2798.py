@@ -12,3 +12,4 @@ for i in range(n):
                 sum_card = max(sum_card, card[i] + card[j] + card[k])   # 두 값중 큰 값을 저장한다.
 
 print(sum_card)
+# 세 수를 더한 값 중 m 값을 넘지 않는 수 중에서 가장 큰 값을 저장한다

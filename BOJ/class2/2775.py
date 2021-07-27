@@ -22,15 +22,15 @@ def good_code():
     t = int(input())
 
     for i in range(t):
-        k = int(input())
-        n = int(input())
+        k = int(input())    # a
+        n = int(input())    # b
 
-        d = [j for j in range(1, n + 1)]
+        d = [j for j in range(1, n + 1)]    # 0 층은 1, 2, 3, ..
 
         for l in range(k):
             for m in range(1, n): # d[0]은 항상 1로 고정이기 때문
                 d[m] += d[m - 1]
-        print(d[n - 1])
+        print(d, d[n - 1])
 
 
 good_code()

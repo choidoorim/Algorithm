@@ -253,3 +253,7 @@
     - python 에서 PriorityQueue 보다 일반적으로 heapq 가 더 빨리 동작한다
     - 우선순위 큐에서 값을 추출 시 항상 갚이 큰 데이터가 물건이 먼저 나온다
     - ```sys.setrecursionlimit(10000)```    # runtime Error 를 방지하기 위해 사용
+  
+
+- 2021/07/27 - 백준 문제 풀이
+  - 백준: 2579, 11659

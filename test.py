@@ -1,32 +1,19 @@
-import heapq
-INF = 1e9   # 10억
-n, m = map(int, input().split())    # 노드와 간선의 수
-start = int(input())
-graph = [[] for _ in range(n + 1)]
-# visited = [False] * (n + 1)
-distance = [INF] * (n + 1)
+from sys import stdin
 
-# 그래프: a 노드에 연결 된 b 노드까지의 거리 c - a[b][c]
-for _ in range(m):
-    a, b, c = map(int, input().split())
-    graph[a].append((b, c))
+n, m = map(int, stdin.readline().split())
+trees = list(map(int, stdin.readline().split()))
 
+start, end = 1, max(trees)
 
-def dijkstra(start):
-    q = []
-    heapq.heappush(q, (0, start))
-    distance[start] = 0
-    while q:
-        dist, now = heapq.heappop(q)
-        if dist > distance[now]:
-            continue
-        for grp in graph[now]:
-            cost = dist + grp[1]
-            if cost < distance[grp[0]]:
-                distance[grp[0]] = cost
-                heapq.heappush(q, (cost, grp[0]))
+while start <= end:
+    mid = (start + end) // 2
+    sum_tree = 0
+    for tree in trees:
+        if tree >= mid:
+            sum_tree += tree - mid
+    if sum_tree >= m:
+        start = mid + 1
+    else:
+        end = mid - 1
 
-
-dijkstra(start)
-
-print(distance)
+print(end)

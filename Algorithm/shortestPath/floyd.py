@@ -1,3 +1,6 @@
+"""
+최단 경로를 모두 구해야 하는 경우에 사용할 수 있는 알고리즘
+"""
 # 4
 # 7
 # 1 2 4
@@ -26,4 +29,14 @@ for _ in range(m):
     a, b, c = map(int, input().split())
     graph[a][b] = c
 
-print(graph)
+# 점화식에 따라 플로이드 워셜 알고리즘 수행
+for k in range(n + 1):
+    for a in range(n + 1):
+        for b in range(n + 1):
+            graph[a][b] = min(graph[a][b], graph[a][k] + graph[k][b])
+
+
+for i in range(1, n + 1):
+    for j in range(1, n + 1):
+        print(graph[i][j], end=' ')
+    print()

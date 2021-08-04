@@ -10,9 +10,9 @@ for _ in range(t):
             count += 1
             if count == n:
                 if i + 1 < 10:
-                    digit = '0' + str(i + 1)
+                    num = '0' + str(i + 1)
                 else:
-                    digit = str(i + 1)
-                result = str(j+1) + digit    # 어떻게 십의 자리로 출력할까
+                    num = str(i + 1)
+                result = str(j+1) + num
                 print(result)
                 break

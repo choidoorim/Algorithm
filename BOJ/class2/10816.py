@@ -51,3 +51,5 @@ def good_code():
         else:
             print(0, end=' ')
 
+
+good_code()

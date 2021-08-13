@@ -1,7 +1,7 @@
 import sys
 
 
-def my_code():
+def my_code():  # 메모리 초과
     n = int(sys.stdin.readline())
     array = []
     for i in range(n):
@@ -39,4 +39,4 @@ def good_code():
             print(i)
 
 
-good_code()
+my_code()

@@ -348,3 +348,16 @@
 
 - 2021/08/18
   - 프로그래머스: 완주하지 못한 선수, 두 개 뽑아서 더하기, 실패율
+  
+
+- 2021/08/19
+  - 프로그래머스: 체육복, 모의 고사, 소수 만들기
+  - TIP
+    1. ```from itertools import combinations``` 를 통해 배열 내에서 중복이 제거 된 랜덤한 n 개의 배열을 만들수 있다.
+    ```
+    from itertools import combinations
+    nums = [1,2,7,6,4]
+    array = combinations(nums, 3)   # nums 배열에서 3개의 랜덤한 배열을 만들어 주는 객체를 생성한다.
+    for i, j, k in array:
+      print(i, j, k)
+    ```

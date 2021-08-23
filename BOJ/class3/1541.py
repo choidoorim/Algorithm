@@ -12,7 +12,6 @@ for i in data:
     for j in split_num:
         sum_num += int(j)
     num.append(sum_num)
-# 첫 번째 수를 제외한 값들을 모두 더해준다
 result = num[0]
 for k in range(1, len(num)):
     result -= num[k]

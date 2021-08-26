@@ -1,7 +1,8 @@
 """
 - BOJ 1676
 - CDR
-- 팩토리얼을 재귀를 통해 계산 후 0의 갯수를 count 했지만 recursive error 발생, 따라서 math 모듈의 factorial method 사용
+- 팩토리얼을 재귀를 통해 계산 후 0의 갯수를 count 했지만 recursive error 발생,
+따라서 math 모듈의 factorial method 사용
 근데 규칙을 파악해보니 0의 개수는 숫자를 5로 나눴을 때의 몫이 0의 개수이다 : 참고 https://st-lab.tistory.com/165
 5! = 120 -> 1개
 10! = 3628800 -> 2개

@@ -26,8 +26,7 @@ n, m, v = map(int, stdin.readline().split())
 dfs_result = []
 bfs_result = []
 graph = [[] * n for _ in range(n + 1)]
-graph[0].append(1)
-graph[0].append(2)
+
 for _ in range(m):
     a, b = map(int, stdin.readline().split())
     graph[a].append(b)
@@ -36,11 +35,12 @@ for _ in range(m):
 
 for i in range(len(graph)):
     graph[i].sort()
-
+print(graph)
 visited_dfs = [False] * (n + 1)
 visited_bfs = [False] * (n + 1)
 dfs(graph, v, visited_dfs)
 bfs(graph, v, visited_bfs)
+
 for dfs in dfs_result:
     print(dfs, end=' ')
 print()

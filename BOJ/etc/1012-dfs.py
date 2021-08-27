@@ -26,6 +26,7 @@ for _ in range(t):
     count = 0
     m, n, k = map(int, sys.stdin.readline().split())
     array = [[0] * n for _ in range(m)]
+    print(array)
     for _ in range(k):
         x, y = map(int, sys.stdin.readline().split())
         array[x][y] = 1

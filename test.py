@@ -1,19 +1,21 @@
-import sys
-sys.setrecursionlimit(10**6)
+def solution(arr):
+    answer = [0, 0]
+    N = len(arr)
+
+    def comp(x, y, n):
+        num = arr[x][y]
+        for i in range(x, x + n):
+            for j in range(y, y + n):
+                if arr[i][j] != num:
+                    nn = n // 2
+                    comp(x, y, nn)
+                    comp(x, y + nn, nn)
+                    comp(x + nn, y, nn)
+                    comp(x + nn, y + nn, nn)
+                    return
+        answer[num] += 1
+    comp(0, 0, N)
+    return answer
 
 
-def append_star(LEN):
-    if LEN == 1: return ['*']
-    Stars = append_star(LEN//3)
-    L = []
-    for S in Stars:
-        L.append(S*3)
-    for S in Stars:
-        L.append(S+' '*(LEN//3)+S)
-    for S in Stars:
-        L.append(S*3)
-    return L
-
-
-n = int(sys.stdin.readline().strip())
-print('\n'.join(append_star(n)))
+print(solution([[1,1,0,0],[1,0,0,0],[1,0,0,1],[1,1,1,1]]))

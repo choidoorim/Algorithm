@@ -1,18 +1,35 @@
-from collections import deque
+import math
 
 
-def solution(prices):
+def solution(n, words):
     answer = []
-    q = deque(prices)
-    while q:
-        price = q.popleft()
-        sec = 0
-        for i in q:
-            sec += 1
-            if price > i:   # 만약 현재 가격이 이후 가격들보다 떨어질 경우
-                break
-        answer.append(sec)
+    success_words = [words[0]]
+    success_status = True
+    a, b = 0, 0
+    for i in range(1, len(words)):
+        if words[i - 1][-1] != words[i][0]:
+            a = math.ceil((i + 1) / n)
+            if (i + 1) % n == 0:
+                b = n
+            else:
+                b = (i + 1) % n
+            answer = [b, a]
+            success_status = False
+            break
+        if words[i] in success_words:
+            a = math.ceil((i + 1) / n)
+            if (i + 1) % n == 0:
+                b = n
+            else:
+                b = (i + 1) % n
+            answer = [b, a]
+            success_status = False
+            break
+        else:
+            success_words.append(words[i])
+    if success_status:
+        answer = [0, 0]
     return answer
 
 
-print(solution([1, 2, 3, 2, 3]))
+print(solution(2, ["hello", "one", "even", "never", "now", "world", "draw"]))

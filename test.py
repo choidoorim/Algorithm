@@ -1,35 +1,25 @@
-import math
+from itertools import permutations
+N, M = map(int, input().split())
+# visited = [False] * N
+# result = []
+#
+#
+# def solution(depth, n, m):
+#     if depth == m:
+#         print(result)
+#         return
+#     for i in range(len(visited)):
+#         if not visited[i]:
+#             visited[i] = True
+#             result.append(i + 1)
+#             solution(depth + 1, n, m)
+#             visited[i] = False
+#             result.pop()
+#
+#
+# solution(0, N, M)
 
-
-def solution(n, words):
-    answer = []
-    success_words = [words[0]]
-    success_status = True
-    a, b = 0, 0
-    for i in range(1, len(words)):
-        if words[i - 1][-1] != words[i][0]:
-            a = math.ceil((i + 1) / n)
-            if (i + 1) % n == 0:
-                b = n
-            else:
-                b = (i + 1) % n
-            answer = [b, a]
-            success_status = False
-            break
-        if words[i] in success_words:
-            a = math.ceil((i + 1) / n)
-            if (i + 1) % n == 0:
-                b = n
-            else:
-                b = (i + 1) % n
-            answer = [b, a]
-            success_status = False
-            break
-        else:
-            success_words.append(words[i])
-    if success_status:
-        answer = [0, 0]
-    return answer
-
-
-print(solution(2, ["hello", "one", "even", "never", "now", "world", "draw"]))
+result = permutations(range(1, N + 1), M)
+for i in result:
+    res = list(map(str, i))
+    print(" ".join(res))

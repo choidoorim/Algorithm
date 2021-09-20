@@ -16,3 +16,22 @@ for alpha in alphabet:
     elif alphabet[alpha] == big_num:
         big_word = '?'
 print(big_word.upper())
+
+
+def new():
+    word = input()
+    word = word.lower()
+    dic = dict()
+    for i in word:
+        if i in dic:
+            dic[i] += 1
+        else:
+            dic[i] = 1
+
+    max_number = max(dic.values())
+    result = dict((key, value) for key, value in dic.items() if value == max_number)
+    if len(result) == 1:
+        answer = list(result.keys())
+        print(answer[0].upper())
+    else:
+        print('?')

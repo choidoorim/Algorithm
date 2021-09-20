@@ -1,3 +1,9 @@
+"""
+- BOJ 11725
+- CDR
+- 부모 노드 배열을 생성해서 노드 그래프에서 부모노드가 없는 노드를 설정해준다.
+- DFS, BFS
+"""
 from collections import deque
 from sys import stdin
 input = stdin.readline

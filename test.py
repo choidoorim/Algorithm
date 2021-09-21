@@ -1,35 +1,12 @@
-from collections import deque
-from sys import stdin
-input = stdin.readline
-
-N = int(input())
-node = [[] for _ in range(N + 1)]       # 노드 그래프
-parent = [0 for _ in range(N + 1)]
-for _ in range(N - 1):
-    a, b = map(int, input().split())
-    node[a].append(b)
-    node[b].append(a)
+array = [1, 2, 3, 4, 5, 6, 7]
 
 
-def bfs(start):
-    q = deque([start])
-    while q:
-        v = q.popleft()
-        for i in node[v]:
-            if parent[i] == 0:      # 부모 노드가 없을 경우
-                parent[i] = v       # 부모 노드 설정
-                q.append(i)
+def Rotate_arr(arr, n):
+    n %= len(arr)
+    fst_arr = arr[:n]
+    sec_arr = arr[n:]
+    return sec_arr + fst_arr
 
 
-# def dfs(start):
-#     for i in node[start]:
-#         if parent[i] == 0:
-#             parent[i] = start
-#             dfs(i)
-
-
-bfs(1)
-
-for j in range(2, N + 1):
-    print(parent[j])
-
+array = Rotate_arr(array, 2)
+print(array)

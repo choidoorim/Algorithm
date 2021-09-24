@@ -2,20 +2,20 @@
 - 백준: 10799
 - stack 사용
 """
-laser = input()
+from sys import stdin
+input = stdin.readline
+s = list(input().rstrip())
 stack = []
 cnt = 0
-bar = 0
-for i in range(len(laser)):
-    if laser[i] == '(':
-        stack.append(laser[i])
-        bar += 1
+for i in range(len(s)):
+    if s[i] == '(':
+        stack.append(i)
     else:
-        bar -= 1
-        if stack[-1] == '(':
+        if stack:
             stack.pop()
-            if laser[i - 1] == '(':     # () 일 경우
-                cnt += bar
+            if s[i - 1] == '(':     # 레이저 일 경우
+                cnt += len(stack)
             else:
                 cnt += 1
 print(cnt)
+

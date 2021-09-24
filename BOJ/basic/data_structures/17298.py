@@ -20,6 +20,7 @@ stack = []      # 인덱스를 저장
 for i in range(len(A)):
     # 스택에 값이 존재하고, 스택 상단의 인덱스에 해당하는 값보다 인덱스 i의 값이 클 경우
     while stack and A[stack[-1]] < A[i]:
+        print(i, result)
         result[stack.pop()] = str(A[i])
     stack.append(i)
 print(' '.join(result))

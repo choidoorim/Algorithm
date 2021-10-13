@@ -19,4 +19,4 @@ while total:    # B 진수로 변환
     result.append(str(total % B))
     total //= B
 
-print(' '.join(result[::-1]))   
+print(' '.join(result[::-1]))

@@ -10,10 +10,8 @@ num 의 인수 값이 1000 이하이므로 3자리수로 맞춘 뒤, 비교하�
 def solution(numbers):
     numbers = list(map(str, numbers))
     numbers.sort(key=lambda x:x*3, reverse=True)
-    if numbers[0] != "0":
-        return "".join(numbers)
-    else:
-        return "0"
+    return str(int(''.join(numbers)))
 
 
-print(solution([0, 0, 0, 0]))
+print(solution([0, 0, 0]))
+

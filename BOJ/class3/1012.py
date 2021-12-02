@@ -1,36 +1,36 @@
-import sys
 from collections import deque
+import sys
+input = sys.stdin.readline
+
+dx = [0, 1, 0, -1]
+dy = [-1, 0, 1, 0]
 
 
-dx = [0, 0, -1, 1]
-dy = [-1, 1, 0, 0]
-
-
-def bfs(x, y):
-    queue = deque()
-    queue.append((x, y))
-    while queue:
-        x, y = queue.popleft()
+def bfs(a, b):
+    q = deque()
+    q.append((a, b))
+    while q:
+        a, b = q.popleft()
         for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
-            if nx >= 0 and ny >= 0 and nx < m and ny < n:
-                if graph[nx][ny] == 1:
-                    queue.append((nx, ny))
-                    graph[nx][ny] = 0
+            nx = a + dx[i]
+            ny = b + dy[i]
+            if 0 <= nx < m and 0 <= ny < n:
+                if field[nx][ny] == 1:
+                    q.append((nx, ny))
+                    field[nx][ny] = 0
 
 
-t = int(sys.stdin.readline())
+t = int(input())
 for _ in range(t):
-    m, n, k = map(int, sys.stdin.readline().split())
-    graph = [[0] * n for _ in range(m)]
-    count = 0
+    m, n, k = map(int, input().split())
+    cnt = 0
+    field = [[0] * n for i in range(m)]
     for _ in range(k):
-        a, b = map(int, sys.stdin.readline().split())
-        graph[a][b] = 1
+        x, y = map(int, input().split())
+        field[x][y] = 1
     for i in range(m):
         for j in range(n):
-            if graph[i][j] == 1:
+            if field[i][j] == 1:
                 bfs(i, j)
-                count += 1
-    print(count)
+                cnt += 1
+    print(cnt)

@@ -1,5 +1,5 @@
 import sys
-
+input = sys.stdin.readline
 
 def my_code():  # 메모리 초과
     n = int(sys.stdin.readline())
@@ -25,18 +25,16 @@ def sort_num(array):
 
 
 def good_code():
-    n = int(sys.stdin.readline())
-    check_list = [0] * 10001
-
-    for i in range(n):
-        num = int(sys.stdin.readline())
-        check_list[num] += 1
+    n = int(input())
+    array = [0] * 10001
+    for _ in range(n):
+        array[int(input())] += 1
 
     for i in range(10001):
-        if check_list[i] == 0:
+        if array[i] == 0:
             continue
-        for j in range(check_list[i]):
+        for j in range(array[i]):
             print(i)
 
 
-my_code()
+good_code()

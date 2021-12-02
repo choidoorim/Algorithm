@@ -21,14 +21,15 @@ import sys
 #     print(i[0], i[1])
 
 # good Code
-n = int(sys.stdin.readline())
-
+import sys
+input = sys.stdin.readline
+N = int(input())
 array = []
-for i in range(n):
-    x, y = map(int, sys.stdin.readline().split())
+for _ in range(N):
+    x, y = map(int, input().split())
     array.append((x, y))
 
-array.sort(key= lambda x:(x[0], x[1]))
+array.sort(key=lambda x:(x[0],x[1]))
+for a, b in array:
+    print(a, b)
 
-for i in array:
-    print(i[0], i[1])

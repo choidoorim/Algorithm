@@ -1,10 +1,7 @@
-from sys import stdin
-t = int(stdin.readline())
-array = []
-for _ in range(t):
-    n = int(stdin.readline())
-    array.append(n)
-
+import sys
+input = sys.stdin.readline
+n = int(input())
+array = [int(input()) for _ in range(n)]
 array.sort()
 for i in array:
     print(i)

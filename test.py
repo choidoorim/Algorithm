@@ -1,23 +1,37 @@
-import sys
-input = sys.stdin.readline
+from collections import deque
 
 
-def binary_search(array, start, end, target):
-    while start <= end:
-        mid = (start + end) // 2
-        if array[mid] == target:
-            return True
-        elif array[mid] > target:
-            end = mid - 1
-        else:
-            start = mid + 1
-    return False
+def solution(v):
+    cnt = 0
+    max_area = []
+    m = len(v[0])
+    n = len(v)
+
+    dx = [0, 1, 0, -1]
+    dy = [-1, 0, 1, 0]
+
+    def bfs(a, b):
+        q = deque()
+        q.append((a, b))
+        area_cnt = 0
+        while q:
+            a, b = q.popleft()
+            for k in range(4):
+                nx = a + dx[k]
+                ny = b + dy[k]
+                if 0 <= nx < n and 0 <= ny < m:
+                    if v[nx][ny] == 1:
+                        q.append((nx, ny))
+                        v[nx][ny] = 0
+                        area_cnt += 1
+        max_area.append(area_cnt)
+
+    for i in range(n):
+        for j in range(m):
+            if v[i][j] == 1:
+                bfs(i, j)
+                cnt += 1
+    return [cnt, max(max_area)]
 
 
-N = int(input())
-n_array = list(map(int, input().split()))
-M = int(input())
-m_array = list(map(int, input().split()))
-n_array.sort()  # 이분탐색은 정렬이 되어 있어야 한다.
-for num in m_array:
-    print(1 if binary_search(n_array, 0, N - 1, num) else 0)
+print(solution([[1,1,0,1,1],[0,1,1,0,0],[0,0,0,0,0],[1,1,0,1,1],[1,0,1,1,1],[1,0,1,1,1]]))

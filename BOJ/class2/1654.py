@@ -20,9 +20,9 @@ while start <= end:
     for arr in array:   # 랜선마다 최대 길이 계산
         count += arr // mid
 
-    if count >= n:  # 원하는 랜선 길이보다 많을 경우, 더 큰 수로 나눠 개수를 줄인다.
+    if count >= n:  # 원하는 랜선 길이보다 많을 경우, 더 큰 수로 나눠 랜선길이를 줄인다.
         start = mid + 1
-    elif count < n:     # 원하는 랜선 길이보다 적을 경우, 더 작은 수로 나눠 개수를 늘린다.
+    elif count < n:     # 원하는 랜선 길이보다 적을 경우, 더 작은 수로 나눠 랜선길이를 늘린다.
         end = mid - 1
 
 print(end)
